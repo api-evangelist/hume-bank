@@ -1,0 +1,66 @@
+aid: hume-bank
+url: https://raw.githubusercontent.com/api-evangelist/hume-bank/refs/heads/main/apis.yml
+name: Hume Bank
+kind: company
+description: Hume Bank is a customer-owned (mutual) Australian bank headquartered in
+  Albury, New South Wales. Founded in 1955 as the Hume Co-operative Building & Investment
+  Society, it became Hume Building Society and then Hume Bank on 1 July 2014, serving
+  roughly 65,000 customers with around A$1.70 billion in assets. As an authorised
+  deposit-taking institution (ADI) it participates in Australia's Consumer Data Right
+  (CDR / Open Banking) regime, exposing a public, unauthenticated Product Reference
+  Data (PRD) API built to the Consumer Data Standards for its retail and business
+  deposit and credit card products, alongside the accredited-data-recipient consent
+  flows required of a CDR data holder.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial
+- Banks
+- Open Banking
+- CDR
+- Consumer Banking
+- Australia
+- Mutual
+- Product Reference Data
+created: '2026-07-20'
+modified: '2026-07-20'
+specificationVersion: '0.19'
+apis:
+- aid: hume-bank:hume-bank-cdr-product-reference-data-api
+  name: Hume Bank CDR Product Reference Data API
+  tags:
+  - CDR
+  - Open Banking
+  - Product Reference Data
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.humebank.com.au/tools-help/open-banking/
+  baseURL: https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/products
+  properties:
+  - url: https://www.humebank.com.au/tools-help/open-banking/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_get-products
+    type: APIReference
+  - url: openapi/hume-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Public, unauthenticated Consumer Data Right Product Reference Data API
+    conforming to the Australian Consumer Data Standards (CDS). Confirmed live returning
+    HTTP 200 with 25 products (x-v 4) at the CDR-registered base https://ibankob.humebank.com.au/OpenBanking,
+    covering Hume Bank's retail and business term deposits, savings/transaction accounts,
+    home loans, personal loans, and credit card products with rates, fees, and eligibility.
+common:
+- type: Website
+  url: https://www.humebank.com.au/
+- type: DeveloperPortal
+  url: https://www.humebank.com.au/tools-help/open-banking/
+- type: Documentation
+  url: https://www.humebank.com.au/tools-help/open-banking/
+- type: PrivacyPolicy
+  url: https://www.humebank.com.au/privacy-policy/
+- type: Support
+  url: https://www.humebank.com.au/contact-us/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/humebank
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

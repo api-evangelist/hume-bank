@@ -1,0 +1,84 @@
+aid: hume-bank
+name: Hume Bank
+review:
+  question: Does Hume Bank expose a live, public Consumer Data Right Product Reference Data (PRD) API, and is any bank-proprietary API specification published?
+  answer: true
+  date: '2026-07-20'
+  reviewer: API Evangelist
+  prdConfirmed: true
+  prdScopeNote: |
+    Hume Bank is an Australian authorised deposit-taking institution (ADI) and a
+    CDR data holder. Its public, unauthenticated Product Reference Data API was
+    confirmed live on 2026-07-20: GET
+    https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/products
+    returned HTTP 200 with an application/json body containing a data.products
+    array of 25 products and an x-v: 4 response header. The CDR-registered public
+    base URI (from the CDR Register data-holder brands summary) is
+    https://ibankob.humebank.com.au/OpenBanking.
+findings:
+  summary: |
+    Hume Bank exposes a genuine, live, public CDR Product Reference Data (PRD)
+    API built to the Australian Consumer Data Standards (CDS). The PRD endpoint
+    is unauthenticated (product data only, no consumer data) and negotiated by
+    the mandated x-v version header; version 4 is served (versions 1-2 return
+    HTTP 406 Not Acceptable, versions 4-5 return HTTP 200). The bank publishes a
+    plain-language open-banking information page at
+    https://www.humebank.com.au/tools-help/open-banking/ that points developers
+    to the Product API host, but it does NOT run a branded developer portal, an
+    Up-style personal-banking API, or NAB/CommBank-style API products, and no
+    bank-authored OpenAPI/Swagger is published. Authenticated consumer-data
+    sharing follows the standard CDR data-holder model (OAuth2 / OpenID Connect
+    with FAPI profiles, accessible only to ACCC-accredited data recipients under
+    consumer consent) rather than any Hume-specific public auth scheme. The
+    OpenAPI harvested into this repo is the SHARED DSB Consumer Data Standards
+    "Get Products" contract, not a Hume-proprietary specification.
+  ownership: Customer-owned (mutual) bank, headquartered in Albury, NSW; founded 1955, became Hume Bank on 1 July 2014.
+  specProvenance: |
+    openapi/hume-bank-cds-banking-products-openapi.yml is the shared Data
+    Standards Body (DSB) Consumer Data Standards "Get Products" OpenAPI 3.0.1
+    contract (info.title "Consumer Data Standards - Get Products", paths
+    /banking/products and /banking/products/{productId}), harvested verbatim
+    from a public mirror of the CDS examples. It describes the standard CDR PRD
+    surface every ADI must implement; it is NOT a Hume Bank-authored spec.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/products
+      documented: true
+      note: Public unauthenticated CDR PRD. Confirmed HTTP 200, x-v 4, 25 products.
+    - protocol: REST
+      scheme: https
+      baseURL: https://ibankob.humebank.com.au/OpenBanking
+      documented: true
+      note: CDR-registered public base URI (CDR Register data-holder brands summary). CDS resources are served under cds-au/v1/.
+  authModel:
+    prdPublic: No authentication required for Product Reference Data (product data only).
+    consumerData: Standard CDR data-holder model - OAuth2 / OpenID Connect (FAPI), consumer consent, ACCC-accredited data recipients only. No Hume-specific public auth scheme documented.
+  endpointsConfirmed:
+    - GET https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/products
+  versionNegotiation:
+    - "x-v: 1 -> HTTP 406"
+    - "x-v: 2 -> HTTP 406"
+    - "x-v: 4 -> HTTP 200 (25 products)"
+    - "x-v: 5 -> HTTP 200 (25 products)"
+sources:
+  - url: https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/products
+    type: APIEndpoint
+    note: Live CDR PRD endpoint. HTTP 200 with x-v 4 and data.products array of 25 products.
+  - url: https://api.cdr.gov.au/cdr-register/v1/banking/data-holders/brands/summary
+    type: Registry
+    note: CDR Register brands summary lists Hume Bank publicBaseUri https://ibankob.humebank.com.au/OpenBanking.
+  - url: https://www.humebank.com.au/tools-help/open-banking/
+    type: Documentation
+    note: Hume Bank open-banking page; points developers to the Product API host; no separate developer portal or bank-authored spec.
+  - url: https://consumerdatastandardsaustralia.github.io/standards/
+    type: Standard
+    note: DSB Consumer Data Standards - the shared contract the PRD API and harvested OpenAPI conform to.
+actions:
+  openapiPath: openapi/hume-bank-cds-banking-products-openapi.yml
+  openapiProvenance: DSB Consumer Data Standards (shared "Get Products" contract), not bank-proprietary.
+  apisYmlUpdated: true
+  reason: |
+    A live public CDR PRD surface was confirmed and listed. No bank-proprietary
+    OpenAPI exists; the shared DSB CDS Get Products spec was harvested verbatim
+    and flagged as the standard contract rather than a Hume-authored one.
