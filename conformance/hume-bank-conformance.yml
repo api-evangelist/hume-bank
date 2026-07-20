@@ -1,0 +1,40 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/hume-bank-cds-banking-products-openapi.yml
+standards:
+  - id: cds-au-banking
+    name: Consumer Data Standards (Australia) — Banking
+    conforms: true
+    evidence: >-
+      Implements the CDS Get Products / Get Product Detail contract
+      (BankingProductV3 / BankingProductDetailV3 schemas, x-v version header,
+      CDS x-cds-type field annotations) as a registered CDR data holder.
+  - id: cdr-open-banking
+    name: Consumer Data Right (Open Banking regime)
+    conforms: true
+    evidence: >-
+      Hume Bank is an authorised deposit-taking institution and CDR data holder
+      exposing the mandated public Product Reference Data API.
+  - id: oauth2
+    conforms: false
+    evidence: PRD endpoints are public/unauthenticated; no oauth2 securityScheme.
+  - id: openid-connect
+    conforms: false
+    evidence: No OIDC on the public PRD surface (applies to consumer-data flows only).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Spec documents only 200 responses; CDS uses its own ErrorList envelope
+      rather than application/problem+json.
+  - id: json-pagination
+    conforms: true
+    evidence: >-
+      CDS page-number pagination with LinksPaginated/MetaPaginated
+      (page, page-size, totalRecords, totalPages).
+  - id: fhir-r4
+    conforms: false
+  - id: fapi
+    conforms: false
+    evidence: >-
+      Public PRD surface is out of FAPI scope; FAPI applies to Hume Bank's
+      accredited consumer-data-sharing flows, not present in this spec.

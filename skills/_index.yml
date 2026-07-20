@@ -1,0 +1,7 @@
+generated: '2026-07-20'
+method: generated
+skills:
+  - file: hume-bank-product-lookup.md
+    name: Hume Bank product lookup
+    api: openapi/hume-bank-cds-banking-products-openapi.yml
+    operations: [listProducts, getProductDetail]

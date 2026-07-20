@@ -1,0 +1,82 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/hume-bank-cds-banking-products-openapi.yml
+entities:
+  - name: BankingProductV3
+    description: Summary view of a banking product openly offered to market.
+    id_field: productId
+    id_type: ASCIIString (data-holder-specific, not ID-permanent)
+    key_fields: [productId, brand, name, productCategory, lastUpdated, isTailored]
+  - name: BankingProductDetailV3
+    description: Full product detail (extends BankingProductV3 via allOf).
+    extends: BankingProductV3
+  - name: BankingProductBundle
+  - name: BankingProductFeature
+  - name: BankingProductConstraint
+  - name: BankingProductEligibility
+  - name: BankingProductFee
+  - name: BankingProductDiscount
+  - name: BankingProductDiscountEligibility
+  - name: BankingProductDepositRate
+  - name: BankingProductLendingRateV2
+  - name: BankingProductRateTierV3
+  - name: BankingProductRateCondition
+relationships:
+  - from: BankingProductDetailV3
+    to: BankingProductBundle
+    type: has_many
+    via: bundles
+  - from: BankingProductDetailV3
+    to: BankingProductFeature
+    type: has_many
+    via: features
+  - from: BankingProductDetailV3
+    to: BankingProductConstraint
+    type: has_many
+    via: constraints
+  - from: BankingProductDetailV3
+    to: BankingProductEligibility
+    type: has_many
+    via: eligibility
+  - from: BankingProductDetailV3
+    to: BankingProductFee
+    type: has_many
+    via: fees
+  - from: BankingProductDetailV3
+    to: BankingProductDepositRate
+    type: has_many
+    via: depositRates
+  - from: BankingProductDetailV3
+    to: BankingProductLendingRateV2
+    type: has_many
+    via: lendingRates
+  - from: BankingProductFee
+    to: BankingProductDiscount
+    type: has_many
+    via: discounts
+  - from: BankingProductDiscount
+    to: BankingProductDiscountEligibility
+    type: has_many
+    via: eligibility
+  - from: BankingProductDepositRate
+    to: BankingProductRateTierV3
+    type: has_many
+    via: tiers
+  - from: BankingProductLendingRateV2
+    to: BankingProductRateTierV3
+    type: has_many
+    via: tiers
+  - from: BankingProductRateTierV3
+    to: BankingProductRateCondition
+    type: has_one
+    via: applicabilityConditions
+  - from: BankingProductBundle
+    to: BankingProductV3
+    type: has_many
+    via: productIds
+    note: soft reference by productId, not a $ref
+enumerations:
+  BankingProductCategory:
+    [BUSINESS_LOANS, CRED_AND_CHRG_CARDS, LEASES, MARGIN_LOANS, OVERDRAFTS,
+     PERS_LOANS, REGULATED_TRUST_ACCOUNTS, RESIDENTIAL_MORTGAGES, TERM_DEPOSITS,
+     TRADE_FINANCE, TRAVEL_CARDS, TRANS_AND_SAVINGS_ACCOUNTS]

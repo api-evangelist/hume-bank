@@ -34,10 +34,10 @@ apis:
   - Banking
   - Australia
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.humebank.com.au/tools-help/open-banking/
+  humanURL: https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api
   baseURL: https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/products
   properties:
-  - url: https://www.humebank.com.au/tools-help/open-banking/
+  - url: https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api
     type: Documentation
   - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_get-products
     type: APIReference
@@ -49,12 +49,36 @@ apis:
     covering Hume Bank's retail and business term deposits, savings/transaction accounts,
     home loans, personal loans, and credit card products with rates, fees, and eligibility.
 common:
+- type: AgenticAccess
+  url: agentic-access/hume-bank-agentic-access.yml
+- type: DomainSecurity
+  url: security/hume-bank-domain-security.yml
+- type: Authentication
+  url: authentication/hume-bank-authentication.yml
+- type: Conventions
+  url: conventions/hume-bank-conventions.yml
+- type: Conformance
+  url: conformance/hume-bank-conformance.yml
+- type: DataModel
+  url: data-model/hume-bank-data-model.yml
+- type: Lifecycle
+  url: lifecycle/hume-bank-lifecycle.yml
+- type: MCPServer
+  url: mcp/hume-bank-mcp.yml
+- type: LLMsTxt
+  url: llms/hume-bank-llms.txt
+- type: Overlay
+  url: overlays/hume-bank-cds-banking-products-overlay.yaml
+- type: AgentSkill
+  url: skills/hume-bank-product-lookup.md
 - type: Website
   url: https://www.humebank.com.au/
 - type: DeveloperPortal
-  url: https://www.humebank.com.au/tools-help/open-banking/
+  url: https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api
 - type: Documentation
-  url: https://www.humebank.com.au/tools-help/open-banking/
+  url: https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api
+- type: Pricing
+  url: https://www.humebank.com.au/interest-rates/
 - type: PrivacyPolicy
   url: https://www.humebank.com.au/privacy-policy/
 - type: Support

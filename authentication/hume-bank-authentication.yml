@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api
+docs: https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api
+summary:
+  types: [none]
+  api_key_in: []
+  oauth2_flows: []
+  note: >-
+    The Product Reference Data (PRD) endpoints of the Australian Consumer Data
+    Right are public and unauthenticated by design. No API key, OAuth token, or
+    client registration is required to call GET /banking/products or
+    GET /banking/products/{productId}. Callers MUST send the mandatory x-v
+    request header (API version) per the Consumer Data Standards.
+schemes: []
+notes:
+  - The broader CDR consumer-data flows (accounts, transactions) that Hume Bank
+    operates as a data holder DO require OAuth2 / OIDC (FAPI) and accreditation
+    with the ACCC as an Accredited Data Recipient; those flows are not part of
+    this public PRD spec and are gated through the CDR Register.
+  - Public PRD access is rate-managed and unauthenticated; see conventions/ for
+    the required version-negotiation headers.

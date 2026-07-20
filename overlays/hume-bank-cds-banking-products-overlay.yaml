@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Hume Bank CDR Product Reference Data API
+  version: 1.0.0
+extends: openapi/hume-bank-cds-banking-products-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: hume-bank
+      x-apievangelist-standard: Consumer Data Standards (Australia) — Banking
+      x-apievangelist-auth: none (public PRD)
+      x-apievangelist-version-negotiation: x-v request header (served x-v 4)
+  - target: $.servers
+    update:
+      description: >-
+        The upstream shared spec enumerates ~90 Australian CDR data holders.
+        For this repo the authoritative Hume Bank base is
+        https://ibankob.humebank.com.au/OpenBanking/cds-au/v1
+  - target: $.paths['/banking/products'].get
+    update:
+      x-apievangelist-tool: list_products
+      x-apievangelist-agentic-access: { action-class: connected, consequence: read }
+  - target: $.paths['/banking/products/{productId}'].get
+    update:
+      x-apievangelist-tool: get_product_detail
+      x-apievangelist-agentic-access: { action-class: connected, consequence: read }

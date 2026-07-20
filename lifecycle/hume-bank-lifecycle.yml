@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api
+versioning:
+  scheme: header
+  request_header: x-v
+  min_version_header: x-min-v
+  served_version: '4'
+  detail: >-
+    Endpoint versions are negotiated with the mandatory x-v request header per
+    the Australian Consumer Data Standards; the data holder echoes the served
+    version in the x-v response header. Hume Bank is confirmed serving x-v 4.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: >-
+    Version lifecycle is governed centrally by the Consumer Data Standards /
+    DSB release cadence rather than a Hume-specific deprecation policy;
+    product-level retirement is expressed per product via effectiveTo /
+    effectiveFrom fields (managed product deprecation), not via HTTP
+    Deprecation/Sunset headers.
+sla:
+  url: null
+  detail: >-
+    Availability and performance are governed by the CDR performance and
+    availability requirements the ACCC/DSB set for data holders; no
+    Hume-specific SLA page is published.
+status_page: null
+governance:
+  regime: Consumer Data Right (CDR)
+  regulator: ACCC / Treasury (Data Standards Body)
+  policy: https://www.humebank.com.au/media/2025/12/Consumer-Data-Right-Policy_POL266_EXTERNAL_December-2025-1.pdf
+deprecated_operations: []

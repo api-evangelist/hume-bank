@@ -1,0 +1,31 @@
+# Hume Bank
+
+> Hume Bank is a customer-owned (mutual) Australian bank headquartered in Albury, New South Wales, and an authorised deposit-taking institution (ADI) participating in Australia's Consumer Data Right (CDR / Open Banking). It exposes a public, unauthenticated Product Reference Data (PRD) API built to the Consumer Data Standards, covering its retail and business deposit, lending, and credit card products.
+
+## APIs
+
+- [Hume Bank CDR Product Reference Data API](https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api): Public PRD API returning Hume Bank's openly offered banking products (rates, fees, eligibility). Base: https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/products — send the mandatory `x-v` header (served x-v 4). No authentication required.
+
+## Specs
+
+- [OpenAPI (Get Products / Get Product Detail)](https://raw.githubusercontent.com/api-evangelist/hume-bank/refs/heads/main/openapi/hume-bank-cds-banking-products-openapi.yml)
+- [Consumer Data Standards — Banking (Get Products)](https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_get-products)
+
+## Artifacts
+
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/hume-bank/refs/heads/main/authentication/hume-bank-authentication.yml)
+- [API conventions (versioning / pagination)](https://raw.githubusercontent.com/api-evangelist/hume-bank/refs/heads/main/conventions/hume-bank-conventions.yml)
+- [Conformance (CDS / CDR)](https://raw.githubusercontent.com/api-evangelist/hume-bank/refs/heads/main/conformance/hume-bank-conformance.yml)
+- [Data model / ERD](https://raw.githubusercontent.com/api-evangelist/hume-bank/refs/heads/main/data-model/hume-bank-data-model.yml)
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/hume-bank/refs/heads/main/lifecycle/hume-bank-lifecycle.yml)
+- [MCP candidate tools](https://raw.githubusercontent.com/api-evangelist/hume-bank/refs/heads/main/mcp/hume-bank-mcp.yml)
+- [Agentic access contracts](https://raw.githubusercontent.com/api-evangelist/hume-bank/refs/heads/main/agentic-access/hume-bank-agentic-access.yml)
+- [Agent skill: product lookup](https://raw.githubusercontent.com/api-evangelist/hume-bank/refs/heads/main/skills/hume-bank-product-lookup.md)
+
+## Docs
+
+- [Open Banking / Product API](https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api)
+- [Interest rates](https://www.humebank.com.au/interest-rates/)
+- [CDR Policy (PDF)](https://www.humebank.com.au/media/2025/12/Consumer-Data-Right-Policy_POL266_EXTERNAL_December-2025-1.pdf)
+- [Privacy policy](https://www.humebank.com.au/privacy-policy/)
+- [Contact / support](https://www.humebank.com.au/contact-us/)

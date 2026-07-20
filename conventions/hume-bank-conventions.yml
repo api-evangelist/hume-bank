@@ -1,0 +1,65 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/hume-bank-cds-banking-products-openapi.yml
+standard: Consumer Data Standards (Australia) — Banking APIs
+docs: https://consumerdatastandardsaustralia.github.io/standards/#introduction
+summary: >-
+  Cross-cutting request/response semantics for Hume Bank's CDR Product Reference
+  Data API, derived from the OpenAPI and the Australian Consumer Data Standards
+  the endpoints implement.
+authentication:
+  style: none
+  detail: Public, unauthenticated PRD endpoints. See authentication/hume-bank-authentication.yml
+versioning:
+  style: header
+  request_header: x-v
+  min_version_header: x-min-v
+  required: true
+  detail: >-
+    Clients declare the endpoint version they request via the mandatory x-v
+    request header (optionally x-min-v). The data holder echoes the served
+    version in the x-v response header. This is CDS header-based version
+    negotiation, not URI-path versioning. Hume Bank is confirmed serving x-v 4.
+  cross_ref: lifecycle/hume-bank-lifecycle.yml
+pagination:
+  style: page-number
+  params: [page, page-size]
+  default_page_size: 25
+  response_fields:
+    links: [self, first, prev, next, last]
+    meta: [totalRecords, totalPages]
+  detail: >-
+    Standard CDS page-number pagination. Responses carry a LinksPaginated links
+    object and a MetaPaginated meta object with totalRecords / totalPages.
+filtering:
+  params:
+    - name: effective
+      values: [CURRENT, FUTURE, ALL]
+    - name: updated-since
+      type: DateTimeString
+    - name: brand
+    - name: product-category
+      note: One of the BankingProductCategory enum values.
+idempotency:
+  supported: false
+  detail: >-
+    All operations are safe, read-only HTTP GETs; there is no idempotency-key
+    contract because there are no state-changing requests. (No Idempotency
+    pointer is emitted for this provider.)
+error_envelope:
+  detail: >-
+    This public PRD spec documents only 200 responses. Under the Consumer Data
+    Standards, error responses use a standard ErrorList envelope
+    ({ errors: [ { code, title, detail, meta } ] }); Hume Bank's spec does not
+    enumerate them, so no error catalog is derived.
+rate_limiting:
+  signaled: false
+  detail: >-
+    The spec advertises no rate-limit response headers. The CDS mandates
+    traffic-management thresholds for unattended vs customer-present calls, but
+    Hume Bank's PRD spec does not surface them.
+content_type: application/json
+data_types:
+  detail: >-
+    Fields carry CDS x-cds-type annotations (AmountString, RateString,
+    DateTimeString, URIString, CurrencyString, etc.) governing string formats.
