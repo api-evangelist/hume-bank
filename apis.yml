@@ -22,7 +22,7 @@ tags:
 - Mutual
 - Product Reference Data
 created: '2026-07-20'
-modified: '2026-07-21'
+modified: '2026-07-22'
 specificationVersion: '0.19'
 apis:
 - aid: hume-bank:hume-bank-cdr-product-reference-data-api
@@ -162,6 +162,8 @@ common:
   url: conventions/hume-bank-conventions.yml
 - type: Conformance
   url: conformance/hume-bank-conformance.yml
+- type: ErrorCatalog
+  url: errors/hume-bank-problem-types.yml
 - type: DataModel
   url: data-model/hume-bank-data-model.yml
 - type: Lifecycle
@@ -186,6 +188,10 @@ common:
   url: https://www.humebank.com.au/interest-rates/
 - type: PrivacyPolicy
   url: https://www.humebank.com.au/privacy-policy/
+- type: TermsOfService
+  url: https://www.humebank.com.au/terms-of-use/
+- type: Login
+  url: https://ibank.humebank.com.au/
 - type: Support
   url: https://www.humebank.com.au/tools-help/get-in-touch/
 - type: LinkedIn

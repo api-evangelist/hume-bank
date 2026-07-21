@@ -1,0 +1,107 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/hume-bank-cds-banking-products-openapi.yml
+docs: https://consumerdatastandardsaustralia.github.io/standards/#error-codes
+format: cds-error-list
+summary: >-
+  Error catalog derived from the documented 400/404/406/422 responses in the
+  Consumer Data Standards CDR Banking API surface Hume Bank implements. These are
+  NOT RFC 9457 application/problem+json; the Australian Consumer Data Standards
+  define their own ErrorList envelope (ResponseErrorListV2) with standardized
+  urn:au-cds:error:* codes. Titles and the per-status code sets below are taken
+  verbatim from the spec's response descriptions; the canonical URN codes are the
+  Consumer Data Standards error-code registry values these errors extend.
+envelope:
+  schema: ResponseErrorListV2
+  shape:
+    errors:
+      - code: string        # urn:au-cds:error:* (or app-specific, with URN in meta)
+        title: string        # stable, human-readable summary (must not vary)
+        detail: string       # occurrence-specific explanation
+        meta: object         # optional; carries the extended URN when app-specific
+  required: [errors]
+  note: >-
+    Per CDS, `code`, `title` and `detail` are required on every error object;
+    `title` MUST be stable for a given code across occurrences.
+problems:
+  - status: 400
+    code: urn:au-cds:error:cds:field:invalid
+    title: Invalid Field
+    anchor: '#error-400-field-invalid'
+    remediation: Correct the malformed request field value and retry.
+  - status: 400
+    code: urn:au-cds:error:cds:field:invalid
+    title: Invalid Date/Time
+    anchor: '#error-400-field-invalid-date-time'
+    remediation: Supply a valid DateTimeString (ISO 8601) for the affected field.
+  - status: 400
+    code: urn:au-cds:error:cds:field:missing
+    title: Missing Required Field
+    anchor: '#error-400-field-missing'
+    remediation: Include the mandatory request field and retry.
+  - status: 400
+    code: urn:au-cds:error:cds:field:invalid
+    title: Invalid Page Size
+    anchor: '#error-400-field-invalid-page-size'
+    remediation: Use a page-size within the permitted range (1..1000; default 25).
+  - status: 400
+    code: urn:au-cds:error:cds:header:missing
+    title: Missing Required Header
+    anchor: '#error-400-header-missing'
+    remediation: Send the mandatory x-v version header (and any other required headers).
+  - status: 400
+    code: urn:au-cds:error:cds:version:invalid
+    title: Invalid Version
+    anchor: '#error-400-header-invalid-version'
+    remediation: Provide a valid, positive-integer x-v (and optional x-min-v) header value.
+  - status: 404
+    code: urn:au-cds:error:cds:resource:invalid
+    title: Invalid Resource
+    anchor: '#error-404-resource-invalid'
+    remediation: The requested resource identifier is not valid; check the path id.
+  - status: 404
+    code: urn:au-cds:error:cds:resource:unavailable
+    title: Unavailable Resource
+    anchor: '#error-404-resource-unavailable'
+    remediation: The resource exists in the standard but is not available from this holder.
+  - status: 404
+    code: urn:au-cds:error:cds:resource:not-implemented
+    title: Resource Not Implemented
+    anchor: '#error-404-resource-not-implemented'
+    remediation: The endpoint/version is not implemented by this data holder.
+  - status: 404
+    code: urn:au-cds:error:cdr:authorisation:unavailable-banking-account
+    title: Unavailable Banking Account
+    anchor: '#error-404-authorisation-unavailable-banking-account'
+    remediation: The account is not available under the current consent/authorisation.
+  - status: 404
+    code: urn:au-cds:error:cdr:authorisation:invalid-banking-account
+    title: Invalid Banking Account
+    anchor: '#error-404-authorisation-invalid-banking-account'
+    remediation: The accountId is not valid for the authorised consumer.
+  - status: 406
+    code: urn:au-cds:error:cds:version:unsupported
+    title: Unsupported Version
+    anchor: '#error-406-header-unsupported-version'
+    remediation: Request a version within the holder's supported x-v range (Hume Bank serves x-v 4).
+  - status: 422
+    code: urn:au-cds:error:cds:field:invalid
+    title: Invalid Page
+    anchor: '#error-422-field-invalid-page'
+    remediation: The requested page number exceeds the available pages; request an in-range page.
+  - status: 422
+    code: urn:au-cds:error:cdr:authorisation:unavailable-banking-account
+    title: Unavailable Banking Account
+    anchor: '#error-422-authorisation-unavailable-banking-account'
+    remediation: The account is not available for the requested operation under consent.
+  - status: 422
+    code: urn:au-cds:error:cdr:authorisation:invalid-banking-account
+    title: Invalid Banking Account
+    anchor: '#error-422-authorisation-invalid-banking-account'
+    remediation: The supplied accountId is not valid within the authorisation.
+notes:
+  - Applies across the CDR Banking surface Hume Bank exposes; the public PRD
+    endpoints (/banking/products*) emit the 400/404/406/422 subset, while the
+    consent-gated account endpoints add the authorisation-scoped 404/422 codes.
+  - Every error response also carries the x-fapi-interaction-id header for
+    correlation, per the Consumer Data Standards.
