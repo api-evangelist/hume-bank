@@ -22,7 +22,7 @@ tags:
 - Mutual
 - Product Reference Data
 created: '2026-07-20'
-modified: '2026-07-20'
+modified: '2026-07-21'
 specificationVersion: '0.19'
 apis:
 - aid: hume-bank:hume-bank-cdr-product-reference-data-api
@@ -34,20 +34,123 @@ apis:
   - Banking
   - Australia
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api
+  humanURL: https://www.humebank.com.au/tools-help/open-banking/
   baseURL: https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/products
   properties:
-  - url: https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api
+  - url: https://www.humebank.com.au/tools-help/open-banking/
     type: Documentation
   - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_get-products
     type: APIReference
   - url: openapi/hume-bank-cds-banking-products-openapi.yml
     type: OpenAPI
   description: Public, unauthenticated Consumer Data Right Product Reference Data API
-    conforming to the Australian Consumer Data Standards (CDS). Confirmed live returning
-    HTTP 200 with 25 products (x-v 4) at the CDR-registered base https://ibankob.humebank.com.au/OpenBanking,
-    covering Hume Bank's retail and business term deposits, savings/transaction accounts,
-    home loans, personal loans, and credit card products with rates, fees, and eligibility.
+    conforming to the Australian Consumer Data Standards (CDS). Covers Get Products
+    and Get Product Detail (/banking/products, /banking/products/{productId}) at the
+    CDR-registered base https://ibankob.humebank.com.au/OpenBanking, returning Hume
+    Bank's retail and business term deposits, savings/transaction accounts, home loans,
+    personal loans, and credit card products with rates, fees, and eligibility. Confirmed
+    live (probe 2026-07-21 returns HTTP 406 for a mismatched x-v; documented as HTTP
+    200 with 25 products at x-v 4). This surface requires no authentication.
+- aid: hume-bank:hume-bank-cdr-accounts-balances-api
+  name: Hume Bank CDR Accounts & Balances API
+  tags:
+  - CDR
+  - Open Banking
+  - Accounts
+  - Balances
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.humebank.com.au/tools-help/open-banking/
+  baseURL: https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/accounts
+  properties:
+  - url: https://www.humebank.com.au/tools-help/open-banking/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_get-accounts
+    type: APIReference
+  - url: openapi/hume-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Consumer-authorized Consumer Data Right Accounts and Balances API conforming
+    to the Australian Consumer Data Standards (CDS). Covers Get Accounts, Get Account
+    Detail, Get Bulk Balances and Get Account Balance (/banking/accounts, /banking/accounts/{accountId},
+    /banking/accounts/balances, /banking/accounts/{accountId}/balance). Access requires
+    consumer consent through an Accredited Data Recipient under the CDR ADR model;
+    an unauthenticated probe of /banking/accounts returned HTTP 401 (2026-07-21),
+    confirming the endpoint is live and correctly authorization-gated.
+- aid: hume-bank:hume-bank-cdr-transactions-api
+  name: Hume Bank CDR Transactions API
+  tags:
+  - CDR
+  - Open Banking
+  - Transactions
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.humebank.com.au/tools-help/open-banking/
+  baseURL: https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/accounts/{accountId}/transactions
+  properties:
+  - url: https://www.humebank.com.au/tools-help/open-banking/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_get-transactions-for-account
+    type: APIReference
+  - url: openapi/hume-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Consumer-authorized Consumer Data Right Transactions API conforming
+    to the Australian Consumer Data Standards (CDS). Covers Get Transactions For Account
+    and Get Transaction Detail (/banking/accounts/{accountId}/transactions and /banking/accounts/{accountId}/transactions/{transactionId}).
+    Access requires consumer consent through an Accredited Data Recipient under the
+    CDR ADR model; the endpoint is live and authorization-gated (returns HTTP 401
+    without a valid CDR access token).
+- aid: hume-bank:hume-bank-cdr-direct-debits-scheduled-payments-api
+  name: Hume Bank CDR Direct Debits & Scheduled Payments API
+  tags:
+  - CDR
+  - Open Banking
+  - Direct Debits
+  - Scheduled Payments
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.humebank.com.au/tools-help/open-banking/
+  baseURL: https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/accounts/direct-debits
+  properties:
+  - url: https://www.humebank.com.au/tools-help/open-banking/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_get-direct-debits-for-account
+    type: APIReference
+  - url: openapi/hume-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Consumer-authorized Consumer Data Right Direct Debits and Scheduled
+    Payments API conforming to the Australian Consumer Data Standards (CDS). Covers
+    Get Direct Debits (bulk and per-account) and Get Scheduled Payments (bulk and
+    per-account) across /banking/accounts/direct-debits, /banking/accounts/{accountId}/direct-debits,
+    /banking/payments/scheduled and /banking/accounts/{accountId}/payments/scheduled.
+    Access requires consumer consent through an Accredited Data Recipient under the
+    CDR ADR model; endpoints are live and authorization-gated.
+- aid: hume-bank:hume-bank-cdr-payees-api
+  name: Hume Bank CDR Payees API
+  tags:
+  - CDR
+  - Open Banking
+  - Payees
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.humebank.com.au/tools-help/open-banking/
+  baseURL: https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/payees
+  properties:
+  - url: https://www.humebank.com.au/tools-help/open-banking/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_get-payees
+    type: APIReference
+  - url: openapi/hume-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Consumer-authorized Consumer Data Right Payees API conforming to the
+    Australian Consumer Data Standards (CDS). Covers Get Payees and Get Payee Detail
+    (/banking/payees and /banking/payees/{payeeId}), returning a customer's saved
+    payees. Access requires consumer consent through an Accredited Data Recipient
+    under the CDR ADR model; the endpoint is live and authorization-gated behind the
+    CDR consent flow.
 common:
 - type: AgenticAccess
   url: agentic-access/hume-bank-agentic-access.yml
@@ -74,15 +177,17 @@ common:
 - type: Website
   url: https://www.humebank.com.au/
 - type: DeveloperPortal
-  url: https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api
+  url: https://www.humebank.com.au/tools-help/open-banking/
 - type: Documentation
-  url: https://www.humebank.com.au/about-hume-bank/customer-resources/open-banking-products-api
+  url: https://www.humebank.com.au/tools-help/open-banking/
+- type: APIReference
+  url: https://consumerdatastandardsaustralia.github.io/standards/#consumer-data-standards-banking-apis
 - type: Pricing
   url: https://www.humebank.com.au/interest-rates/
 - type: PrivacyPolicy
   url: https://www.humebank.com.au/privacy-policy/
 - type: Support
-  url: https://www.humebank.com.au/contact-us/
+  url: https://www.humebank.com.au/tools-help/get-in-touch/
 - type: LinkedIn
   url: https://www.linkedin.com/company/humebank
 maintainers:
