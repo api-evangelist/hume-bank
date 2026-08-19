@@ -2,22 +2,24 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: openapi/hume-bank-cds-banking-products-openapi.yml
-note: >-
-  No official Hume Bank MCP server was found. These are candidate tools derived
-  one-per-operation from the CDR Product Reference Data OpenAPI. The endpoints
-  are public and unauthenticated (send the mandatory x-v header).
+note: No official Hume Bank MCP server was found. These are candidate tools derived one-per-operation
+  from the CDR Product Reference Data OpenAPI. The endpoints are public and unauthenticated (send the
+  mandatory x-v header).
 server:
   name: hume-bank-products
   transport: http
 tools:
-  - name: list_products
-    description: >-
-      List Hume Bank banking products currently offered to market. Supports
-      filtering by effective status, brand, product-category, and updated-since,
-      with page/page-size pagination.
-    source_operation: openapi/hume-bank-cds-banking-products-openapi.yml#listProducts
-  - name: get_product_detail
-    description: >-
-      Get full detail for a single Hume Bank product by productId, including
-      fees, rates, features, constraints, eligibility, and bundles.
-    source_operation: openapi/hume-bank-cds-banking-products-openapi.yml#getProductDetail
+- name: list_products
+  description: List Hume Bank banking products currently offered to market. Supports filtering by effective
+    status, brand, product-category, and updated-since, with page/page-size pagination.
+  source_operation: openapi/hume-bank-cds-banking-products-openapi.yml#listProducts
+- name: get_product_detail
+  description: Get full detail for a single Hume Bank product by productId, including fees, rates, features,
+    constraints, eligibility, and bundles.
+  source_operation: openapi/hume-bank-cds-banking-products-openapi.yml#getProductDetail
+deployment:
+  mode: none
+  verified: derived
+  tools: 2
+  checked: '2026-08-12'
+  source: catalog MCP census
