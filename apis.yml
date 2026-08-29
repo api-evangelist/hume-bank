@@ -11,6 +11,18 @@ description: Hume Bank is a customer-owned (mutual) Australian bank headquartere
   Data (PRD) API built to the Consumer Data Standards for its retail and business
   deposit and credit card products, alongside the accredited-data-recipient consent
   flows required of a CDR data holder.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
