@@ -1,0 +1,75 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://www.humebank.com.au/interest-rates/
+sources:
+- https://www.humebank.com.au/interest-rates/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: consumer
+pricing_basis: ad-valorem
+published: true
+note: Retail bank interest rate schedule (home loans, personal loans, savings, term deposits, credit cards).
+  No API or software pricing; representative rates listed.
+plan_count: 9
+plans:
+- name: liteBlue Variable Rate <=60% LVR (owner occupier)
+  price_text: 5.99%
+  price: 5.99
+  period: none
+  unit: annual percentage rate
+  included_quota: Comparison rate 6.00%
+- name: nextBlue Bridging Loan Variable Rate <80% LVR
+  price_text: 7.84%
+  price: 7.84
+  period: none
+  unit: annual percentage rate
+  included_quota: Comparison rate 7.94%; Establishment fee of $1,250
+- name: Secured personal loan
+  price_text: 8.49%
+  price: 8.49
+  period: none
+  unit: annual percentage rate
+  included_quota: Comparison rate 8.70%
+- name: Unsecured personal loan
+  price_text: 12.49%
+  price: 12.49
+  period: none
+  unit: annual percentage rate
+  included_quota: Comparison rate 12.71%
+- name: iSave account
+  price_text: 3.25%
+  price: 3.25
+  period: none
+  unit: interest rate p.a.
+  included_quota: Balance $1+
+- name: Reward Saver account total (base + bonus)
+  price_text: 5.05%
+  price: 5.05
+  period: none
+  unit: interest rate p.a.
+  included_quota: Base 0.01% + Bonus 5.04%
+- name: Term deposit 12 months
+  price_text: 5.25%
+  price: 5.25
+  period: none
+  unit: interest rate p.a.
+  included_quota: Balance of $1,000+
+- name: Hume Value Visa credit card purchases
+  price_text: 11.95%
+  price: 11.95
+  period: none
+  unit: interest rate p.a.
+  included_quota: Cash advances 19.95%
+- name: Hume Clear Visa credit card purchases
+  price_text: 14.95%
+  price: 14.95
+  period: none
+  unit: interest rate p.a.
+  included_quota: Cash advances 19.95%
+rate_limit_statements:
+- For Term Deposits above $1,000,000 reach out to discuss rates.
+- Bridging loans are available as a maximum 12-month facility.
+- The 80% LVR cap includes all capitalised interest and the establishment fee.

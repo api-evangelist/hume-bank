@@ -218,6 +218,8 @@ apis:
   - type: APIReference
     url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_get-payees
 common:
+- type: Plans
+  url: plans/hume-bank-plans-pricing.yml
 - type: CapabilityMap
   url: capabilities/hume-bank-capability-edges.yml
   name: Hume Bank Business Capability Map
