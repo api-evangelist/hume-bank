@@ -73,3 +73,82 @@ rate_limit_statements:
 - For Term Deposits above $1,000,000 reach out to discuss rates.
 - Bridging loans are available as a maximum 12-month facility.
 - The 80% LVR cap includes all capitalised interest and the establishment fee.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units: []
+  plans:
+  - name: liteBlue Variable Rate <=60% LVR (owner occupier)
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - none
+  - name: nextBlue Bridging Loan Variable Rate <80% LVR
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - none
+  - name: Secured personal loan
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - none
+  - name: Unsecured personal loan
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - none
+  - name: iSave account
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - none
+  - name: Reward Saver account total (base + bonus)
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - none
+  - name: Term deposit 12 months
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - none
+  - name: Hume Value Visa credit card purchases
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - none
+  - name: Hume Clear Visa credit card purchases
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - none
