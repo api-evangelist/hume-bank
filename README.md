@@ -1,4 +1,4 @@
-# Hume Bank (hume-bank)
+# Hume Bank
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,59 +64,134 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Hume Bank is a customer-owned (mutual) Australian bank headquartered in Albury, New South Wales. Founded in 1955 as the Hume Co-operative Building & Investment Society, it became Hume Building Society and then Hume Bank on 1 July 2014, serving roughly 65,000 customers with around A$1.70 billion in assets. As an authorised deposit-taking institution (ADI) it participates in Australia's Consumer Data Right (CDR / Open Banking) regime, exposing a public, unauthenticated Product Reference Data (PRD) API built to the Consumer Data Standards for its retail and business deposit and credit card products.
+Hume Bank is a customer-owned (mutual) Australian bank headquartered in Albury, New South Wales. Founded in 1955 as the Hume Co-operative Building & Investment Society, it became Hume Building Society and then Hume Bank on 1 July 2014, serving roughly 65,000 customers with around A$1.70 billion in assets. As an authorised deposit-taking institution (ADI) it participates in Australia's Consumer Data Right (CDR / Open Banking) regime, exposing a public, unauthenticated Product Reference Data (PRD) API built to the Consumer Data Standards for its retail and business deposit and credit card products, alongside the accredited-data-recipient consent flows required of a CDR data holder.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/hume-bank/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/hume-bank/refs/heads/main/apis.yml)
+**Areas:** Finance · Banks · Open Banking · CDR · Consumer Banking · Australia · Mutual · Product Reference Data
 
-## Tags
+## Hume Bank on APIs.io
 
-- Financial
-- Banks
-- Open Banking
-- CDR
-- Consumer Banking
-- Australia
-- Mutual
-- Product Reference Data
+Everything profiled for Hume Bank is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/hume-bank/](https://apis.io/providers/hume-bank/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (7)
 
-- **Created:** 2026-07-20
-- **Modified:** 2026-07-20
+- [Hume Bank Banking Account Balances API](https://apis.io/apis/hume-bank/hume-bank-banking-account-balances-api/) — Banking Account Balance endpoints
+- [Hume Bank Banking Account Direct Debits API](https://apis.io/apis/hume-bank/hume-bank-banking-account-direct-debits-api/) — Banking Account Direct Debit endpoints
+- [Hume Bank Banking Account Scheduled Payments API](https://apis.io/apis/hume-bank/hume-bank-banking-account-scheduled-payments-api/) — Banking Account Scheduled Payment endpoints
+- [Hume Bank Banking Account Transactions API](https://apis.io/apis/hume-bank/hume-bank-banking-account-transactions-api/) — Banking Account Transaction endpoints
+- [Hume Bank Banking Accounts API](https://apis.io/apis/hume-bank/hume-bank-banking-accounts-api/) — Banking Account endpoints
+- [Hume Bank Banking Payees API](https://apis.io/apis/hume-bank/hume-bank-banking-payees-api/) — Banking Payee endpoints
+- [Hume Bank Banking Products API](https://apis.io/apis/hume-bank/hume-bank-banking-products-api/) — Banking Product endpoints
 
-## APIs
+### Published properties
 
-### Hume Bank CDR Product Reference Data API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Public, unauthenticated Consumer Data Right Product Reference Data API conforming to the Australian Consumer Data Standards (CDS). Confirmed live returning HTTP 200 with 25 products (x-v 4) at the CDR-registered base `https://ibankob.humebank.com.au/OpenBanking`, covering Hume Bank's retail and business term deposits, savings/transaction accounts, home loans, personal loans, and credit card products with rates, fees, and eligibility.
+#### MCP servers (1)
 
-- **Human URL:** [https://www.humebank.com.au/tools-help/open-banking/](https://www.humebank.com.au/tools-help/open-banking/)
-- **Base URL:** `https://ibankob.humebank.com.au/OpenBanking/cds-au/v1/banking/products`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [hume-bank-products](https://apis.io/servers/hume-bank/hume-bank-products/)
 
-- CDR
-- Open Banking
-- Product Reference Data
-- Banking
-- Australia
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://www.humebank.com.au/tools-help/open-banking/)
-- [API Reference](https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_get-products)
-- [OpenAPI](openapi/hume-bank-cds-banking-products-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Hume Bank Agentic Access](https://apis.io/agentic-access/hume-bank/hume-bank-agentic-access/)
 
-## Common Properties
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [CDR Banking Banking Account Balances API](https://apis.io/collections/hume-bank/open-hume-bank-banking-account-balances-api/)
+- [CDR Banking Banking Account Balances Banking Account Direct Debits API](https://apis.io/collections/hume-bank/open-hume-bank-banking-account-direct-debits-api/)
+- [CDR Banking Banking Account Balances Banking Account Scheduled Payments API](https://apis.io/collections/hume-bank/open-hume-bank-banking-account-scheduled-payments-api/)
+- [CDR Banking Banking Account Balances Banking Account Transactions API](https://apis.io/collections/hume-bank/open-hume-bank-banking-account-transactions-api/)
+- [CDR Banking Banking Account Balances Banking Accounts API](https://apis.io/collections/hume-bank/open-hume-bank-banking-accounts-api/)
+- [CDR Banking Banking Account Balances Banking Payees API](https://apis.io/collections/hume-bank/open-hume-bank-banking-payees-api/)
+- [CDR Banking Banking Account Balances Banking Products API](https://apis.io/collections/hume-bank/open-hume-bank-banking-products-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Hume Bank Cds Banking Products Overlay](https://apis.io/overlays/hume-bank/hume-bank-cds-banking-products-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Hume Bank Authentication](https://apis.io/security/hume-bank/hume-bank-authentication/)
+- [Hume Bank Domain Security](https://apis.io/security/hume-bank/hume-bank-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Hume Bank Plans Pricing](https://apis.io/plans/hume-bank/hume-bank-plans-pricing/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.humebank.com.au/)
-- [Developer Portal](https://www.humebank.com.au/tools-help/open-banking/)
 - [Documentation](https://www.humebank.com.au/tools-help/open-banking/)
-- [Privacy Policy](https://www.humebank.com.au/privacy-policy/)
-- [Support](https://www.humebank.com.au/contact-us/)
-- [LinkedIn](https://www.linkedin.com/company/humebank)
+- [API reference](https://consumerdatastandardsaustralia.github.io/standards/#consumer-data-standards-banking-apis)
+- [Pricing](https://www.humebank.com.au/interest-rates/)
+- [Support](https://www.humebank.com.au/tools-help/get-in-touch/)
+- [Terms of service](https://www.humebank.com.au/terms-of-use/)
+- [Privacy policy](https://www.humebank.com.au/privacy-policy/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 41.1** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 44.7 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 44.6 |
+| Access clarity | 69.7 |
+
+**Agent readiness 25.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 19.7** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/hume-bank/](https://apis.io/providers/hume-bank/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Hume Bank: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/hume-bank/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
